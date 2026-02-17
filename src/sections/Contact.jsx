@@ -1,100 +1,91 @@
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 bg-gray-50">
-      
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="contact"
+      className="py-28 bg-gradient-to-br from-slate-900 to-emerald-900 text-white"
+    >
+      <div className="max-w-7xl mx-auto px-6">
 
-        {/* TITLE */}
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900">
-            Book Your Appointment
+        {/* HEADER */}
+        <div className="max-w-2xl">
+          <h2 className="text-5xl font-bold leading-tight">
+            Book Your Visit
+            <span className="block text-emerald-400">
+              Start Your Smile Journey
+            </span>
           </h2>
 
-          <p className="mt-4 text-gray-600">
-            Schedule your visit or contact us directly. Our team will respond
-            as soon as possible.
+          <p className="mt-6 text-gray-300">
+            Contact us today to schedule your appointment. Our team is ready
+            to provide comfortable, professional care tailored to you.
           </p>
         </div>
 
         {/* CONTENT */}
-        <div className="mt-16 grid lg:grid-cols-2 gap-12 items-start">
+        <div className="mt-16 grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* CONTACT INFO */}
-          <div className="space-y-6">
+          {/* LEFT — CONTACT CARD */}
+          <div className="bg-white/10 backdrop-blur-xl p-10 rounded-3xl border border-white/20 space-y-6">
 
             <div>
-              <p className="text-gray-500 text-sm">Phone</p>
-              <p className="text-lg font-semibold">+212 6 00 00 00 00</p>
+              <p className="text-emerald-400 text-sm">Phone</p>
+              <p className="text-xl font-semibold">+212 7 73 32 06 73</p>
             </div>
 
             <div>
-              <p className="text-gray-500 text-sm">Email</p>
-              <p className="text-lg font-semibold">info@dentalcare.com</p>
+              <p className="text-emerald-400 text-sm">Email</p>
+              <p className="text-xl font-semibold">info@dentalcare.com</p>
             </div>
 
             <div>
-              <p className="text-gray-500 text-sm">Address</p>
-              <p className="text-lg font-semibold">
-                Rabat, Morocco
+              <p className="text-emerald-400 text-sm">Location</p>
+              <p className="text-xl font-semibold">Rabat, Morocco</p>
+            </div>
+
+            <div>
+              <p className="text-emerald-400 text-sm">Working Hours</p>
+              <p className="text-xl font-semibold">
+                Mon — Sat: 9AM — 7PM
               </p>
             </div>
 
-            <div>
-              <p className="text-gray-500 text-sm">Working Hours</p>
-              <p className="text-lg font-semibold">
-                Mon — Sat: 9:00 AM — 7:00 PM
-              </p>
-            </div>
-
-            {/* WHATSAPP CTA */}
             <a
               href="https://wa.me/212773320673"
-              className="inline-block mt-6 bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition"
+              className="inline-block mt-4 bg-emerald-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-emerald-400 transition"
             >
               Chat on WhatsApp
             </a>
 
           </div>
 
-          {/* FORM */}
-          <form className="bg-white p-8 rounded-2xl shadow-lg space-y-6">
+          {/* RIGHT — FORM */}
+          <form className="bg-white text-gray-900 p-10 rounded-3xl shadow-2xl space-y-6">
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Full Name
-              </label>
-              <input
-                type="text"
-                className="mt-2 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Your name"
-              />
-            </div>
+            <h3 className="text-2xl font-bold">
+              Request an Appointment
+            </h3>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                className="mt-2 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="+212..."
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="Full Name"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700">
-                Message
-              </label>
-              <textarea
-                rows="4"
-                className="mt-2 w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Describe your request"
-              ></textarea>
-            </div>
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            />
+
+            <textarea
+              rows="4"
+              placeholder="Describe your request"
+              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            ></textarea>
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
+              className="w-full bg-emerald-600 text-white py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
             >
               Send Request
             </button>
@@ -104,7 +95,6 @@ export default function Contact() {
         </div>
 
       </div>
-
     </section>
   );
 }

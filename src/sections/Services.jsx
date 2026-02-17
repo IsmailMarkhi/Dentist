@@ -33,44 +33,75 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-24 bg-gray-50">
-      
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section
+      id="services"
+      className="py-28 bg-gradient-to-br from-white to-emerald-50"
+    >
+      <div className="max-w-7xl mx-auto px-6">
 
         {/* TITLE */}
-        <h2 className="text-4xl font-bold text-gray-900">
-          Our Dental Services
-        </h2>
+        <div className="max-w-3xl">
+          <h2 className="text-5xl font-bold text-gray-900 leading-tight">
+            Comprehensive Dental Services
+          </h2>
 
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-          We offer a full range of treatments using modern technology
-          to ensure comfort, safety, and long-lasting results.
-        </p>
+          <p className="mt-6 text-lg text-gray-600">
+            From preventive care to advanced treatments, we provide
+            personalized solutions designed for long-term oral health.
+          </p>
+        </div>
 
-        {/* CARDS */}
-        <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* CONTENT */}
+        <div className="mt-16 grid lg:grid-cols-3 gap-10">
 
-          {services.map((s, i) => (
-            <div
-              key={i}
-              className="bg-white p-8 rounded-2xl shadow hover:shadow-lg transition text-left"
+          {/* FEATURED SERVICE */}
+          <div className="lg:col-span-2 bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
+            <div className="text-5xl mb-6">🦷</div>
+
+            <h3 className="text-3xl font-bold text-gray-900">
+              Dental Implants
+            </h3>
+
+            <p className="mt-4 text-gray-600 text-lg">
+              Restore missing teeth permanently with advanced implant
+              technology that looks, feels, and functions like natural teeth.
+            </p>
+
+            <a
+              href="#contact"
+              className="inline-block mt-8 bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
             >
-              <div className="text-4xl mb-4">{s.icon}</div>
+              Learn More
+            </a>
+          </div>
 
-              <h3 className="text-xl font-semibold text-gray-900">
-                {s.title}
-              </h3>
+          {/* SIDE SERVICES */}
+          <div className="space-y-6">
 
-              <p className="mt-3 text-gray-600">
-                {s.desc}
-              </p>
-            </div>
-          ))}
+            {services.slice(1).map((s, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition flex gap-4 items-start"
+              >
+                <div className="text-3xl">{s.icon}</div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900">
+                    {s.title}
+                  </h4>
+
+                  <p className="text-sm text-gray-600 mt-1">
+                    {s.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+          </div>
 
         </div>
 
       </div>
-
     </section>
   );
 }
