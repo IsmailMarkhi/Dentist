@@ -48,7 +48,7 @@ export default function Contact() {
 
             {/* WHATSAPP CTA */}
             <a
-              href="https://wa.me/212600000000"
+              href="https://wa.me/212773320673"
               className="inline-block mt-6 bg-green-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-green-600 transition"
             >
               Chat on WhatsApp
