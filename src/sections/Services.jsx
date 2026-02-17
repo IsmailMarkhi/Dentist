@@ -1,106 +1,52 @@
 export default function Services() {
-  const services = [
+  const items = [
     {
-      title: "Dental Implants",
-      desc: "Permanent solution for missing teeth with natural look and function.",
-      icon: "🦷",
+      name: "Implants",
+      img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "Teeth Whitening",
-      desc: "Professional whitening treatments for a brighter smile.",
-      icon: "✨",
+      name: "Whitening",
+      img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "Orthodontics",
-      desc: "Braces and aligners to straighten teeth and improve bite.",
-      icon: "😁",
+      name: "Orthodontics",
+      img: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=600&auto=format&fit=crop",
     },
     {
-      title: "Routine Cleaning",
-      desc: "Preventive care to maintain healthy teeth and gums.",
-      icon: "🪥",
-    },
-    {
-      title: "Cosmetic Dentistry",
-      desc: "Enhance the appearance of your smile with modern techniques.",
-      icon: "💎",
-    },
-    {
-      title: "Emergency Care",
-      desc: "Immediate treatment for dental pain or injuries.",
-      icon: "🚑",
+      name: "Cleaning",
+      img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=600&auto=format&fit=crop",
     },
   ];
 
   return (
     <section
       id="services"
-      className="py-28 bg-gradient-to-br from-white to-emerald-50"
+      className="py-24 bg-gray-50 dark:bg-slate-800 text-center scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+        Services
+      </h2>
 
-        {/* TITLE */}
-        <div className="max-w-3xl">
-          <h2 className="text-5xl font-bold text-gray-900 leading-tight">
-            Comprehensive Dental Services
-          </h2>
+      <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
+        {items.map((s, i) => (
+          <div
+            key={i}
+            className="bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-md transition overflow-hidden"
+          >
+            {/* IMAGE */}
+            <img
+              src={s.img}
+              alt={s.name}
+              loading="lazy"
+              className="w-full h-40 object-cover"
+            />
 
-          <p className="mt-6 text-lg text-gray-600">
-            From preventive care to advanced treatments, we provide
-            personalized solutions designed for long-term oral health.
-          </p>
-        </div>
-
-        {/* CONTENT */}
-        <div className="mt-16 grid lg:grid-cols-3 gap-10">
-
-          {/* FEATURED SERVICE */}
-          <div className="lg:col-span-2 bg-white p-10 rounded-3xl shadow-xl border border-gray-100">
-            <div className="text-5xl mb-6">🦷</div>
-
-            <h3 className="text-3xl font-bold text-gray-900">
-              Dental Implants
-            </h3>
-
-            <p className="mt-4 text-gray-600 text-lg">
-              Restore missing teeth permanently with advanced implant
-              technology that looks, feels, and functions like natural teeth.
+            {/* TITLE */}
+            <p className="p-4 font-medium text-gray-800 dark:text-gray-200">
+              {s.name}
             </p>
-
-            <a
-              href="#contact"
-              className="inline-block mt-8 bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
-            >
-              Learn More
-            </a>
           </div>
-
-          {/* SIDE SERVICES */}
-          <div className="space-y-6">
-
-            {services.slice(1).map((s, i) => (
-              <div
-                key={i}
-                className="bg-white p-6 rounded-2xl shadow hover:shadow-lg transition flex gap-4 items-start"
-              >
-                <div className="text-3xl">{s.icon}</div>
-
-                <div>
-                  <h4 className="font-semibold text-gray-900">
-                    {s.title}
-                  </h4>
-
-                  <p className="text-sm text-gray-600 mt-1">
-                    {s.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-
+        ))}
       </div>
     </section>
   );

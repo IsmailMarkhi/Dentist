@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-28 bg-gradient-to-br from-emerald-50 to-white"
+      className="py-28 bg-gradient-to-br from-emerald-50 to-white scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-6">
 
@@ -23,14 +23,15 @@ export default function About() {
         </div>
 
         {/* CONTENT GRID */}
-        <div className="mt-16 grid lg:grid-cols-3 gap-10 items-start">
+        <div className="mt-16 grid gap-10 items-start lg:grid-cols-3">
 
           {/* IMAGE */}
           <div className="lg:col-span-2 relative">
             <img
               src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1200"
-              alt="Dental clinic"
-              className="rounded-3xl shadow-2xl"
+              alt="Dental clinic interior"
+              loading="lazy"
+              className="w-full h-auto rounded-3xl shadow-2xl object-cover"
             />
           </div>
 
@@ -54,7 +55,7 @@ export default function About() {
 
             <a
               href="#contact"
-              className="block text-center mt-4 bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
+              className="block text-center mt-4 bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-400 transition"
             >
               Book Appointment
             </a>

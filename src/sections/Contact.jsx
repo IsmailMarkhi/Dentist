@@ -1,98 +1,97 @@
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="py-28 bg-gradient-to-br from-slate-900 to-emerald-900 text-white"
+      className="py-24 bg-white dark:bg-slate-900 scroll-mt-24"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6 grid gap-12 lg:grid-cols-2">
 
-        {/* HEADER */}
-        <div className="max-w-2xl">
-          <h2 className="text-5xl font-bold leading-tight">
-            Book Your Visit
-            <span className="block text-emerald-400">
-              Start Your Smile Journey
-            </span>
+        {/* INFO */}
+        <div className="space-y-6">
+
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
+            Contact Us
           </h2>
 
-          <p className="mt-6 text-gray-300">
-            Contact us today to schedule your appointment. Our team is ready
-            to provide comfortable, professional care tailored to you.
+          <p className="text-gray-600 dark:text-gray-300">
+            Schedule your visit or contact us directly. Our team will
+            respond as soon as possible.
           </p>
-        </div>
 
-        {/* CONTENT */}
-        <div className="mt-16 grid lg:grid-cols-2 gap-16 items-center">
+          {/* PHONE */}
+          <p className="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+            <Phone className="text-emerald-600" />
+            <a
+              href="tel:+212773320673"
+              className="hover:text-emerald-600 transition"
+            >
+              +212 7 73 32 06 73
+            </a>
+          </p>
 
-          {/* LEFT — CONTACT CARD */}
-          <div className="bg-white/10 backdrop-blur-xl p-10 rounded-3xl border border-white/20 space-y-6">
+          {/* EMAIL */}
+          <p className="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+            <Mail className="text-emerald-600" />
+            <a
+              href="mailto:info@dentalcare.com"
+              className="hover:text-emerald-600 transition"
+            >
+              info@dentalcare.com
+            </a>
+          </p>
 
-            <div>
-              <p className="text-emerald-400 text-sm">Phone</p>
-              <p className="text-xl font-semibold">+212 7 73 32 06 73</p>
-            </div>
+          {/* ADDRESS */}
+          <p className="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+            <MapPin className="text-emerald-600" />
+            <a
+              href="https://www.google.com/maps?q=Rabat,Morocco"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-emerald-600 transition"
+            >
+              Rabat, Morocco
+            </a>
+          </p>
 
-            <div>
-              <p className="text-emerald-400 text-sm">Email</p>
-              <p className="text-xl font-semibold">info@dentalcare.com</p>
-            </div>
+          {/* HOURS */}
+          <p className="flex items-center gap-3 text-gray-800 dark:text-gray-200">
+            <Clock className="text-emerald-600" />
+            Mon — Sat: 9AM — 7PM
+          </p>
 
-            <div>
-              <p className="text-emerald-400 text-sm">Location</p>
-              <p className="text-xl font-semibold">Rabat, Morocco</p>
-            </div>
+          {/* CTA BUTTONS */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
 
-            <div>
-              <p className="text-emerald-400 text-sm">Working Hours</p>
-              <p className="text-xl font-semibold">
-                Mon — Sat: 9AM — 7PM
-              </p>
-            </div>
+            <a
+              href="tel:+212773320673"
+              className="bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-emerald-700 transition w-full sm:w-auto"
+            >
+              Call Now
+            </a>
 
             <a
               href="https://wa.me/212773320673"
-              className="inline-block mt-4 bg-emerald-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-emerald-400 transition"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-green-500 text-white px-6 py-3 rounded-full font-semibold text-center hover:bg-green-600 transition w-full sm:w-auto"
             >
-              Chat on WhatsApp
+              WhatsApp
             </a>
 
           </div>
 
-          {/* RIGHT — FORM */}
-          <form className="bg-white text-gray-900 p-10 rounded-3xl shadow-2xl space-y-6">
-
-            <h3 className="text-2xl font-bold">
-              Request an Appointment
-            </h3>
-
-            <input
-              type="text"
-              placeholder="Full Name"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            />
-
-            <input
-              type="tel"
-              placeholder="Phone Number"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            />
-
-            <textarea
-              rows="4"
-              placeholder="Describe your request"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="w-full bg-emerald-600 text-white py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
-            >
-              Send Request
-            </button>
-
-          </form>
-
         </div>
+
+        {/* GOOGLE MAP */}
+        <iframe
+          src="https://www.google.com/maps?q=Rabat,Morocco&output=embed"
+          className="w-full h-80 sm:h-96 rounded-2xl shadow"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Dental clinic location"
+        ></iframe>
 
       </div>
     </section>

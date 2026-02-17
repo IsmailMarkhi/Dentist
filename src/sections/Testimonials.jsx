@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 export default function Testimonials() {
   const [reviews, setReviews] = useState([
@@ -19,32 +19,40 @@ export default function Testimonials() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!form.name || !form.text || form.rating === 0) return;
+
+    const name = form.name.trim();
+    const text = form.text.trim();
+
+    if (!name || !text || form.rating === 0) return;
 
     const newReview = {
-      name: form.name,
-      text: form.text,
+      name,
+      text,
       role: "Patient",
       rating: form.rating,
       time: new Date().toLocaleDateString(),
     };
 
-    setReviews([newReview, ...reviews]);
+    setReviews((prev) => [newReview, ...prev]);
     setForm({ name: "", text: "", rating: 0 });
   };
 
-  const avgRating =
-    reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  // Memoized for performance
+  const avgRating = useMemo(
+    () =>
+      reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length,
+    [reviews]
+  );
 
   return (
     <section
       id="testimonials"
-      className="py-28 bg-gradient-to-br from-white to-emerald-50"
+      className="py-28 bg-gradient-to-br from-white to-emerald-50 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-6">
 
         {/* TOP SECTION */}
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid gap-16 items-start lg:grid-cols-2">
 
           {/* LEFT — RATING */}
           <div>
@@ -58,9 +66,13 @@ export default function Testimonials() {
               </span>
 
               <div>
-                <div className="text-yellow-400 text-xl">
+                <div
+                  className="text-yellow-400 text-xl"
+                  aria-label={`Average rating ${avgRating.toFixed(1)} out of 5`}
+                >
                   {"★".repeat(Math.round(avgRating))}
                 </div>
+
                 <p className="text-gray-500 text-sm">
                   Based on {reviews.length} reviews
                 </p>
@@ -80,6 +92,7 @@ export default function Testimonials() {
                   setForm({ ...form, name: e.target.value })
                 }
                 className="w-full border rounded-xl px-4 py-3"
+                required
               />
 
               <textarea
@@ -90,13 +103,19 @@ export default function Testimonials() {
                 }
                 className="w-full border rounded-xl px-4 py-3"
                 rows="3"
+                required
               />
 
               {/* STARS */}
-              <div className="flex gap-2 text-2xl cursor-pointer">
+              <div
+                className="flex gap-2 text-2xl cursor-pointer"
+                role="radiogroup"
+                aria-label="Rating"
+              >
                 {[1, 2, 3, 4, 5].map((star) => (
-                  <span
+                  <button
                     key={star}
+                    type="button"
                     onClick={() =>
                       setForm({ ...form, rating: star })
                     }
@@ -105,13 +124,17 @@ export default function Testimonials() {
                         ? "text-yellow-400"
                         : "text-gray-300"
                     }
+                    aria-label={`${star} star`}
                   >
                     ★
-                  </span>
+                  </button>
                 ))}
               </div>
 
-              <button className="bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition">
+              <button
+                type="submit"
+                className="bg-emerald-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-emerald-700 transition"
+              >
                 Submit Review
               </button>
             </form>
@@ -136,6 +159,7 @@ export default function Testimonials() {
                     <p className="font-semibold text-gray-900">
                       {r.name}
                     </p>
+
                     <span className="text-xs text-gray-400">
                       {r.time}
                     </span>
