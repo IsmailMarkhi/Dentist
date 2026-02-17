@@ -6,7 +6,7 @@ export default function Header() {
         
         {/* LOGO */}
         <h1 className="text-2xl font-bold text-blue-600">
-          DentalCare
+          <a href="#">DentalCare</a>
         </h1>
 
         {/* NAV LINKS */}
